@@ -1,0 +1,31 @@
+Git常用命令总结
+git config 
+Git 提供了一个叫做 git config 的工具，专门用来配置或读取相应的工作环境变量。
+这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方：
+  •	/etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。
+  •	~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。
+  •	当前项目的 Git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
+
+git clone url
+	该命令类似于svn checkout ，可以将远端git 仓库克隆到本地让自己能够查看该项目，或者进行修改
+git add 命令可将该文件添加到缓存
+git status –s 查看在你上次提交之后是否有修改。
+git diff 
+执行 git diff 来查看执行 git status 的结果的详细信息。
+git diff 命令显示已写入缓存与已修改但尚未写入缓存的改动的区别。git diff 有两个主要的应用场景。
+  •	尚未缓存的改动：git diff
+  •	查看已缓存的改动： git diff --cached
+  •	查看已缓存的与未缓存的所有改动：git diff HEAD
+  •	显示摘要而非整个 diff：git diff --stat
+git commit
+使用 git add 命令将想要快照的内容写入缓存区， 而执行 git commit 将缓存区内容添加到仓库中。
+Git 为你的每一个提交都记录你的名字与电子邮箱地址，所以第一步需要配置用户名和邮箱地址。
+$ git config --global user.name 'runoob'
+$ git config --global user.email test@runoob.com
+git branch (branchname): 创建分支命令
+git checkout (branchname): 切换分支命令, 当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容,所以多个分支不需要多个目录
+git branch 会列出你在本地的分支
+git remote 列出远程仓库名
+git push remote-name branch-name 将本地分支推送到远程库
+git fetch [remote-name] 这个命令会访问远程仓库，从中拉取所有你还没有的数据。
+

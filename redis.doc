@@ -1,0 +1,6 @@
+1	最基本的就是基本指令的操作	针对那几种数据类型
+2.redis端口的配置等
+启动redis:	在安装目录下src/redis-server
+进入redis：	src/redis-cli -p 端口号
+配置启动：	conf/redis-vbus.conf
+3	底层接口的编写（高级）

@@ -1,6 +1,21 @@
   2016.12.27
-  1.label控件
+  1.label控件和linkLabel控件
     属性：text:文本名称
     方法：hide：隐藏控件:label.Hide();不需要赋值，及时visible=true也看不到
     show:显示控件：lable.Show():显示控件
     事件：click:用户单击控件时将发生该事件
+  2.TextBox控件
+    属性：Maxlength:可在文本框中输入的最大字数
+          Multiline:是否可以在文本中输入多少行
+          passwordchar:密码输入字符
+          readonly:文本框设置为只读
+          text:检索在控件中输入的文本
+
+    方法：clear：删除所有的文本
+          show:显示
+    事件：keypress:用户按一个键结束时将发生的事件
+  3.button控件
+  属性：enabled:是否禁用
+        performclick:button控件的click事件
+        click:单击按钮时将触发的事件
+  

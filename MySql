@@ -10,9 +10,36 @@
 load data指令：LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE pet;
 insert into tablename(col_name) values(str)
 insert into tablename set col_name="context"
+insert into tbl_name1(col1,col2) select col3,col4 from tbl_name2;
+注意：INSERT INTO ... SELECT语句满足下列条件：
+  1. 查询不能包含一个ORDER BY子句。
+  2. INSERT语句的目的表不能出现在SELECT查询部分的FROM子句，因为这在ANSI SQL中被禁止让从你正在插入的表中SELECT。
+  （问题是SELECT将可能发现在同一个运行期间内先前被插入的记录。当使用子选择子句时，情况能很容易混淆）
 删
 
 改
 
 查
+查询表全部字段：select * from tablename;
+查询指定行列：select * from tablename where 字段="str" and\or 字段="str";
+模糊查询指令： select *from tablename where 字段 like ×××%；注意：%是个通配符，只能用于select中，表示0或多个字符。
+distinct指令去除重复字段信息：select *from tablename order by 字段名 distinct;
+
+计算：
+select 1+1
+
+条件查询：
+eg:SELECT name, species, birth FROM pet ORDER BY species, birth DESC;
+ORDER BY column_name [ASC|DESC] [,…]
+其中ASC表示升序，为默认值，DESC为降序。ORDER BY不能按text、text和image数据类型进行排序。
+
+限制查询：
+limit后面有一个数字表示显示多少行数据，如果limit后面有两个数字，第一个数字表示偏移量即从哪行开始，第二个数字表示显示多少行。
+eg:select *from tablename limit 1,100;
+只显示100条数据： select *from tablename limit 100;
+MIN()最小值，SUM()总数
+MAX()返回最大值：
+select max(turname) from tablename;
+COUNT()计数：
+select count(turname) from tablename;
 ###################################################################################

@@ -1,0 +1,18 @@
+运行MySql并存储数据的机器叫MySql Server.
+登陆数据库：mysql -h hostname -u username -ppassword databasename
+数据库退出：quit 或 exit 或crtl+d
+创建数据库：create database databasename
+使用数据库：use datbasename
+创建一个表：create table tablename();显示表：show tables;显示表结构：desc tablename
+
+###################################################################################
+增
+load data指令：LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE pet;
+insert into tablename(col_name) values(str)
+insert into tablename set col_name="context"
+删
+
+改
+
+查
+###################################################################################

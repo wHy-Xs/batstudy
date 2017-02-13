@@ -6,10 +6,35 @@ Git 提供了一个叫做 git config 的工具，专门用来配置或读取相�
   •	~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。
   •	当前项目的 Git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。
 
-git clone url
-	该命令类似于svn checkout ，可以将远端git 仓库克隆到本地让自己能够查看该项目，或者进行修改
+git clone url 该命令类似于svn checkout ，可以将远端git 仓库克隆到本地让自己能够查看该项目，或者进行修改
 git add 命令可将该文件添加到缓存
+git log       # 显示提交日志
+git status    # 查看当前版本状态（是否修改）
 git status –s 查看在你上次提交之后是否有修改。
+提交步骤：
+	1.git add .
+	2.git commit -m "说明"
+	3.git push origin master   # 将当前分支push到远程master分支
+
+git branch                                                # 显示本地分支
+git branch -a                                             # 显示所有分支
+git branch (branchname)				    	  # 创建分支命令
+git branch --contains 50089                               # 显示包含提交50089的分支
+
+git checkout (branchname): 切换分支命令, 当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容,所以多个分支不需要多个目录
+git checkout newname  将分支上的内容直接弄下来
+git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出
+git checkout -b master master_copy                        # 上面的完整版
+
+git remote 列出远程仓库名
+git pull origin 远程分支：本地分支  将远程内容同步到本地 
+git push remote-name branch-name 将本地分支推送到远程库
+git fetch [remote-name] 这个命令会访问远程仓库，从中拉取所有你还没有的数据。
+git branch -d/D 分支名称 删除本地分支
+git push origin:分支名称 删除远程分支
+
+
+
 git diff 
 执行 git diff 来查看执行 git status 的结果的详细信息。
 git diff 命令显示已写入缓存与已修改但尚未写入缓存的改动的区别。git diff 有两个主要的应用场景。
@@ -22,12 +47,6 @@ git commit
 Git 为你的每一个提交都记录你的名字与电子邮箱地址，所以第一步需要配置用户名和邮箱地址。
 $ git config --global user.name 'runoob'
 $ git config --global user.email test@runoob.com
-git branch (branchname): 创建分支命令
-git checkout (branchname): 切换分支命令, 当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容,所以多个分支不需要多个目录
-git branch 会列出你在本地的分支
-git remote 列出远程仓库名
-git push remote-name branch-name 将本地分支推送到远程库
-git fetch [remote-name] 这个命令会访问远程仓库，从中拉取所有你还没有的数据。
 #############################################################################################
 git init                                                  # 初始化本地git仓库（创建新仓库）
 git config --global user.name "xxx"                       # 配置用户名
@@ -39,19 +58,7 @@ git config --global color.branch auto
 git config --global color.interactive auto
 git config --global --unset http.proxy                    # remove  proxy configuration on git
 git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓库
-git status                                                # 查看当前版本状态（是否修改）
-git add xyz                                               # 添加xyz文件至index
-git add .                                                 # 增加当前子目录下所有更改过的文件至index
-git commit -m 'xxx'                                       # 提交
-git commit --amend -m 'xxx'                               # 合并上一次提交（用于反复修改）
-git commit -am 'xxx'                                      # 将add和commit合为一步
-git rm xxx                                                # 删除index中的文件
-git rm -r *                                               # 递归删除
-git log                                                   # 显示提交日志
-git log -1                                                # 显示1行日志 -n为n行
-git log -5
-git log --stat                                            # 显示提交日志及相关变动文件
-git log -p -m
+
 git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容
 git show dfb02                                            # 可只用commitid的前几位
 git show HEAD                                             # 显示HEAD提交日志
@@ -60,41 +67,20 @@ git tag                                                   # 显示已存在的ta
 git tag -a v2.0 -m 'xxx'                                  # 增加v2.0的tag
 git show v2.0                                             # 显示v2.0的日志及详细内容
 git log v2.0                                              # 显示v2.0的日志
-git diff                                                  # 显示所有未添加至index的变更
-git diff --cached                                         # 显示所有已添加index但还未commit的变更
-git diff HEAD^                                            # 比较与上一个版本的差异
-git diff HEAD -- ./lib                                    # 比较与HEAD版本lib目录的差异
-git diff origin/master..master                            # 比较远程分支master上有本地分支master上没有的
-git diff origin/master..master --stat                     # 只显示差异的文件，不显示具体内容
+
 git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch）
-git branch                                                # 显示本地分支
-git branch --contains 50089                               # 显示包含提交50089的分支
-git branch -a                                             # 显示所有分支
-git branch -r                                             # 显示所有原创分支
-git branch --merged                                       # 显示所有已合并到当前分支的分支
-git branch --no-merged                                    # 显示所有未合并到当前分支的分支
-git branch -m master master_copy                          # 本地分支改名
-git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出
-git checkout -b master master_copy                        # 上面的完整版
-git checkout features/performance                         # 检出已存在的features/performance分支
-git checkout --track hotfixes/BJVEP933                    # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支
-git checkout v2.0                                         # 检出版本v2.0
-git checkout -b devel origin/develop                      # 从远程分支develop创建新本地分支devel并检出
-git checkout -- README                                    # 检出head版本的README文件（可用于修改错误回退）
+
 git merge origin/master                                   # 合并远程master分支至当前分支
 git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改
-git push origin master                                    # 将当前分支push到远程master分支
-git push origin :hotfixes/BJVEP933                        # 删除远程仓库的hotfixes/BJVEP933分支
-git push --tags                                           # 把所有tag推送到远程仓库
+
 git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）
 git fetch --prune                                         # 获取所有原创分支并清除服务器上已删掉的分支
 git pull origin master                                    # 获取远程分支master并merge到当前分支
 git mv README README2                                     # 重命名文件README为README2
 git reset --hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）
 git rebase
-git branch -d hotfixes/BJVEP933                           # 删除分支hotfixes/BJVEP933（本分支修改已合并到其他分支）
-git branch -D hotfixes/BJVEP933                           # 强制删除分支hotfixes/BJVEP933
-git ls-files                                              # 列出git index包含的文件
+
+
 git show-branch                                           # 图示当前分支历史
 git show-branch --all                                     # 图示所有分支历史
 git whatchanged                                           # 显示提交历史对应的文件修改
@@ -107,10 +93,7 @@ git show master@{yesterday}                               # 显示master分支�
 git log --pretty=format:'%h %s' --graph                   # 图示提交日志
 git show HEAD~3
 git show -s --pretty=raw 2be7fcb476
-git stash                                                 # 暂存当前修改，将所有至为HEAD状态
-git stash list                                            # 查看所有暂存
-git stash show -p stash@{0}                               # 参考第一次暂存
-git stash apply stash@{0}                                 # 应用第一次暂存
+
 git grep "delete from"                                    # 文件中搜索文本“delete from”
 git grep -e '#define' --and -e SORT_DIRENT
 git gc

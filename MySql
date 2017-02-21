@@ -166,3 +166,11 @@ set @name = '';
 select @name:=password from user limit 0,1;#从数据表中获取一条记录password字段的值给@name变量。在执行后输出到查询结果集上面。
 （注意等于号前面有一个冒号，后面的limit 0,1是用来限制返回结果的，表示可以是0或1个。相当于SQL SERVER里面的top 1）
 如果直接写：select @name:=password from user; 如果这个查询返回多个值的话，那@name变量的值就是最后一条记录的password字段的值 
+########################################################################################################################
+having一般跟在group by之后，执行记录组选择的一部分来工作的。
+where则是执行所有数据来工作的。
+  eg:用group by和having子句联合来查出不重复的记录,sql如下:
+    select uid,email,count(*) as ct from `edm_user081217` GROUP BY email
+    然后看这个，就容易理解了
+    select uid,email,count(*) as ct from `edm_user081217` GROUP BY email HAVING ct > 1
+    先用group by 对email进行分组,在用having来过滤大于1的,这样查找出来的就是重复的记录了.

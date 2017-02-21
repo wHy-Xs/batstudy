@@ -150,3 +150,19 @@ TIMESTAMP  4       1970-01-01 00:00:00/2037 年某时 YYYYMMDD HHMMSS 混合日�
   创建表的时候指定，例如“CREATE TABLE tablename ( [...], PRIMARY KEY (列的列表) ); ”。但是，我们也可以通过修改表的方式加入主键，
   例如“ALTER TABLE tablename ADD PRIMARY KEY (列的列表); ”。每个表只能有一个主键。（主键要求唯一性且没有值为NULL）
 
+############################################################################################
+1.timestampdiff(interval,datetime_expr1,datetime_expr2)
+  timestampadd(interval,datetime_expr1,datetime_expr2)
+    eg:select TIMESTAMPDIFF(day,'2012-08-24','2012-08-30');  结果：6
+2.to_days()函数，返回天数，内容要加引号
+  eg:select (to_days('2012-08-30')-to_days('2012-08-21'));
+3.DATE_ADD() 函数向日期添加指定的时间间隔
+  DATE_ADD(date,INTERVAL expr type) date 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔,type 参数可以是下列值：year,minutes,
+  second,hour,day,week等
+4.DATE_SUB() 函数从日期减去指定的时间间隔。
+  DATE_SUB(date,INTERVAL expr type) date 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。type 参数可以是下列值：同上
+5.变量赋值
+set @name = '';
+select @name:=password from user limit 0,1;#从数据表中获取一条记录password字段的值给@name变量。在执行后输出到查询结果集上面。
+（注意等于号前面有一个冒号，后面的limit 0,1是用来限制返回结果的，表示可以是0或1个。相当于SQL SERVER里面的top 1）
+如果直接写：select @name:=password from user; 如果这个查询返回多个值的话，那@name变量的值就是最后一条记录的password字段的值 

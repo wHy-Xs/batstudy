@@ -196,3 +196,4 @@ insert into new_db_name select *from tb_name;
 
 in 和not in子查询。
 exists和not exists
+select *from table1 union select *from table2;

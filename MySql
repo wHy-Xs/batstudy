@@ -49,7 +49,7 @@ MIN()最小值，SUM()总数
 MAX()返回最大值：
 select max(turname) from tablename;
 COUNT()计数：
-select count(turname) from tablename;
+select count(turname) from tablename;注意：count(数据列名称)值则只统计全体非NULL值得个数
 ###################################################################################
 改变表结构：
 ###################################################################################

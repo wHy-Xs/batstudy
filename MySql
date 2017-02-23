@@ -197,3 +197,5 @@ insert into new_db_name select *from tb_name;
 in 和not in子查询。
 exists和not exists
 select *from table1 union select *from table2;
+#########################################
+对mysql偶尔有用的另一个选项是-e或--execute选项，可用来将SQL语句传递给服务器。该语句必须用引号引起来(单引号或双引号)。

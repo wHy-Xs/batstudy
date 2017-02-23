@@ -9,8 +9,12 @@
 显示表结构：desc tablename
            show columns from tablename;
 删除表\数据库：drop table\database tbname\dbname;
+导出表结构：mysqldump -h -uroot -p -d db_name >test.sql
+导入表结构：mysql -h -u -p <test.sql导数据不用加-d
+source test.sql
 ###################################################################################
 增
+mysql --local-infile -hlocalhost -uroot -proot
 load data指令：LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE pet;
 insert into tablename(col_name) values(str)
 insert into tablename set col_name="context"
@@ -217,5 +221,3 @@ set names utf8;将数据库的编码格式换成utf8
 set_character_database=utf8 转换编码格式
 set_character_server=utf8 转换编码格式
 
-mysql --local-infile -hlocalhost -uroot -proot 
-load data local infile ""into talbe table_name;

@@ -212,3 +212,10 @@ exists和not exists
 select *from table1 union select *from table2;
 #########################################
 对mysql偶尔有用的另一个选项是-e或--execute选项，可用来将SQL语句传递给服务器。该语句必须用引号引起来(单引号或双引号)。
+show variables like "%char%" 查看数据库的编码格式
+set names utf8;将数据库的编码格式换成utf8
+set_character_database=utf8 转换编码格式
+set_character_server=utf8 转换编码格式
+
+mysql --local-infile -hlocalhost -uroot -proot 
+load data local infile ""into talbe table_name;

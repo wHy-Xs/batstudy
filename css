@@ -30,3 +30,44 @@ CSS 规则由两个主要的部分构成：选择器，以及一条或多条声�
               body {background-image:url("images/back40.gif");}
             </style>
             </head>
+背景：
+    background 	简写属性，作用是将背景属性设置在一个声明中。
+    background-attachment 	背景图像是否固定或者随着页面的其余部分滚动。
+    background-color 	设置元素的背景颜色。
+    background-image 	把图像设置为背景。
+    background-position 	设置背景图像的起始位置。
+    background-repeat 	设置背景图像是否及如何重复。
+文本属性：
+    color 	设置文本颜色
+    direction 	设置文本方向。
+    letter-spacing 	设置字符间距
+    line-height 	设置行高
+    text-align 	对齐元素中的文本
+    text-decoration 	向文本添加修饰
+    text-indent 	缩进元素中文本的首行
+    text-shadow 	设置文本阴影
+    text-transform 	控制元素中的字母
+    unicode-bidi 	设置或返回文本是否被重写 
+    vertical-align 	设置元素的垂直对齐
+    white-space 	设置元素中空白的处理方式
+    word-spacing 	设置字间距
+字体属性：
+    font 	在一个声明中设置所有的字体属性
+    font-family 	指定文本的字体系列
+    font-size 	指定文本的字体大小
+    font-style 	指定文本的字体样式
+    font-variant 	以小型大写字体或者正常字体显示文本。
+    font-weight 	指定字体的粗细。
+    
+    
+    
+区块属性： (Block)
+    字间距letter-spacing: normal; 数值
+    对刘text-align: justify;(两端对齐) left;(左对齐) right;(右对齐) center;(居中)
+    缩进text-indent: 数值px;
+    垂直对齐vertical-align: baseline;(基线) sub;(下标) super;(下标) top; text-top; middle; bottom; text-bottom;
+    词间距word-spacing: normal; 数值
+    空格white-space: pre;(保留) nowrap;(不换行)
+    显示display:block;(块) inline;(内嵌) list-item;(列表项) run-in;(追加部分) compact;(紧凑) marker;(标记) table; inline-table; table-raw-group; table-header-group; table-footer-group; table-raw; table-column-group; table-column; table-cell; table-caption;(表格标题)
+    方框属性： (Box)
+    width:; height:; float:; clear:both; margin:; padding:;     顺序：上右下左

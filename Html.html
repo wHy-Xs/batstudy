@@ -1,0 +1,149 @@
+一.html是用来描述网页的一种语言。
+   1.常用结构：
+        <html>
+          <head>
+            <title></title>
+            <script></script>
+          </head>
+          <body>
+            <script></script>
+          </body>
+        </html>
+    <html> 与 </html> 之间的文本描述网页
+    <body> 与 </body> 之间的文本是可见的页面内容
+    <h1> 与 </h1> 之间的文本被显示为标题
+    <p> 与 </p> 之间的文本被显示为段落
+   2.常用的html属性
+      1)
+        <img>使用格式：<img src="url">
+            alt  定义当图片无法加载时，显示什么信息
+            width 定义宽度，单位可以为像素  也可以为百分比
+            height 定义高度
+        eg: <a href="www.baidu.com"><img src="1.jpg"></a>
+       2)
+         <table>标签属性：
+              border  定义边框
+          在<table>中可以嵌入<th>  <tr>  <td>等标
+            <tr>   定义行
+            <th>   定义表头
+              colspan  定义表头单元格可以横跨的列数。
+              rowspan  定义表头单元格横跨的行数
+              heardes  定义与表头单元格相关联的一个或者多个单元格。(html5新增)　　　
+            <td>   定义单元格
+              colspan  定义单元格可以横跨的列数。
+              rowspan  定义单元格横跨的行数
+              heardes  定义与单元格相关联的一个或者多个单元格。(html5新增)　　
+
+
+     3).表单元素是允许用户在表单中（比如：文本域、下拉列表、单选框、复选框等等）输入信息的元素
+
+              <form>中的属性：
+                action：后面加url  指定当提交表单时向何处发送表单数据
+                method：get/post两个值，get为明文  post为加密
+                name：指定表单的名称
+                target：_blanket  _self  _parent  _top 指定网页打开方式
+                <from>标签中较为常用的标签有<input>  <select>  <label>  <button> 
+                <fieldset> 标签可以将表单内的相关元素分组。 会在相关表单元素周围绘制边框。
+                  name  规定fieldset的名称
+                  form  值：form_id   规定fieldset所属的表单
+                  <legend>  定义了 <fieldset> 元素的标题。
+                <input>中最为常用的几个属性:
+                  form  后面跟所属form的id。规定所属的form
+                  required    值：required    规定必需在提交表单之前填写输入字段。
+                  disabled   值： disabled   disabled 属性规定应该禁用的 <input> 元素。
+                  type:决定输入类型
+                    text  文本域
+                    radio  单选按钮
+                    checkbox  复选框
+                    submit  提交按钮
+                    password  密码输入
+                    reset  重置
+                    color  设置拾色器   html5
+                    number  定义用于输入数字的字段（您可以设置可接受数字的限制）
+                    range  定义用于精确值不重要的输入数字的控件（比如 slider 控件）。您也可以设置可接受数字的限制
+                  name:input元素的名称
+                  value：input元素的值
+                  size：输入字段的宽度
+                  pattern  规定用于验证 <input> 元素的值的正则表达式。pattern 属性适用于下面的 input 类型：text、search、url、tel、email 和 password
+                  list  值为datalist的id   该属性引用 <datalist> 元素，其中包含 <input> 元素的预定义选项。
+                  autofocus  该属性是一个 boolean 属性，让页面载入后，input自动获得焦点
+                  <datalist>  html5中的新特性  标签规定了 <input> 元素可能的选项列表。<datalist> 标签被用来在为 <input> 元素提供"自动完成"的特性。
+                    用户能看到一个下拉列表，里边的选项是预先定义好的，将作为用户的输入数据。
+                    与<option>标签配合使用
+                <button>  定义一个点击按钮
+                  form   所属的form表单
+                  name  button名称
+                  type　　
+                    button  该按钮是可点击的按钮
+                    reset  该按钮是重置按钮
+                    submit  该按钮是提交按钮
+                <label>标签为 input 元素定义标注（标记）
+                  label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。
+                  就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上
+                  for  值为某个元素的id   规定 label 与哪个表单元素绑定。
+                  form  form_id  
+                <textarea>  
+                  name  规定textarea的名称
+                  form    form_id  规定从属的表单
+                  cols　规定可见列数
+                  rows   规定可见行数
+                <select>使用<option>标签定义下拉列表的可用选项.常见的属性：
+                  name：指定select名称
+                  multiple：规定可选择多个选项
+                  <optgroup>  用于把相关的选项组合在一起。
+                    label  为选项组规定描述。
+                <option> 常见的属性：
+                    value：指定送往服务器的选项值
+                    selected：只有一个值--selected   默认选项
+                <keygen>  定义了表单的密钥对生成器字段
+                  form  所属的表单名称
+                  name  名称
+                  keytype  使用的加密算法
+                    rsa   默认的算法
+                    dsa
+                    es
+ 例子：
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="biaoge" action="/return/" method="get">
+    请选择语言:
+    <br/><br/><input type="radio" name="language" id="jtzw" value="chinese"/><label for="jtzw">简体中文</label><br/><br/>
+    <input type="radio" name="language" value="english" id="eng"/><label for="eng">English</label><br/><br/>
+    请选择熟悉的编程语言:<br/><br/>
+    <fieldset>
+        <legend>编程语言</legend>
+            <input type="checkbox" name="python" />python
+            <input type="checkbox" name="c" />c
+            <input type="checkbox" name="swift" />swift<br/><br/>
+    </fieldset><br/>
+
+    请选择地区：
+    <select name="district">
+        <optgroup label="China">
+            <option value="shandong">山东</option>
+            <option value="zhejiang" selected="selected">浙江</option>
+            <option value="guangdong">广东</option>
+        </optgroup>
+        <optgroup label="USA">
+            <option value="ny">纽约</option>
+            <option value="lsj">洛杉矶</option>
+        </optgroup>
+    </select><br/><br/>
+    请选择颜色:<input type="color"><br/><br/>
+    name:<input type="text" name="name" value="slyoyo"/>
+    password:<input type="password" name="passwd" value="hahaha"/>
+    <input type="submit"  value="login"/><br/><br/>
+    系统：<input list="xuanze" type="text">
+    <datalist id="xuanze">
+        <option value="windows">Windows</option>
+        <option value="linux">Linux</option>
+    </datalist>
+</form>
+
+</body>
+</html>

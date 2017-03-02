@@ -26,6 +26,10 @@ Linux常用指令详解：
 9.sed
 10.uniq
 11.du -sh * 查看内存
+12.more当所查看的文本文件内容非常多时，用cat是不合适的，此时可以用more一页一页显示。
+13.less相当于对more的改进，用less指令可以进行一定的搜索
+14.find命令find chengji/ -name nihao 就会在chengji目录下搜索名字为nihao的文件
+15.whatis可以大致了解这个命令是干什么用的eg:whatis cat
 6.
 命令行方式
 awk [-F  field-separator]  'commands'  input-file(s)

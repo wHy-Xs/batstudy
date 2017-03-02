@@ -4,7 +4,8 @@
     /bin/debug目录下。然后再程序中Wolfram.NETLink.dll引用，并加入命名空间中。
 #####################################################################################################################
 //例子c#版本,具体实例地址http://reference.wolfram.com/language/NETLink/ref/net/Wolfram.NETLink.IKernelLink.html
-//mathematica经典解释https://zhidao.baidu.com/question/97461300.html：
+//mathematica经典解释https://zhidao.baidu.com/question/97461300.html
+//资料：http://reference.wolfram.com/language/NETLink/guide/CallingTheWolframLanguageFromNET.html：
 Imports Wolfram.NETLink
 Public Class LinkTest
     Public Shared Sub Main(ByVal args As String())

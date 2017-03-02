@@ -1,1 +1,42 @@
 混编过程：
+前期准备：
+    首先将Wolfram.NETLink.dll,MathKernel.exe,SystemFiles文件夹（这个文件夹是在mathematica中拿出来的），放到本项目
+    /bin/debug目录下。然后再程序中Wolfram.NETLink.dll引用，并加入命名空间中。
+#####################################################################################################################
+//例子c#版本,具体实例地址http://reference.wolfram.com/language/NETLink/ref/net/Wolfram.NETLink.IKernelLink.html：
+Imports Wolfram.NETLink
+Public Class LinkTest
+    Public Shared Sub Main(ByVal args As String())
+
+       “这启动了Mathematica内核：
+        IKernelLink = MathLinkFactory.CreateKernelLink();
+        '丢弃内核将在启动时发送的初始InputNamePacket。
+        ml.WaitAndDiscardAnswer（）
+
+        //用两种方法实现2+2的简单计算
+        //方法1.最简单的方法。将计算作为字符串发送，并在单个调用中获得结果:
+        String = ml.EvaluateToOutputForm（“2 + 2”，0）
+        Console.WriteLine（“2 + 2 =”＆result）
+
+        '如果你想读取结果，使用Evaluate（）而不是EvaluateToXXX（）
+        '作为本机类型，而不是字符串。
+          ml.Evaluate("2+2")
+          ml.WaitForAnswer()
+          Integer = ml.GetInteger()
+          Console.WriteLine("2 + 2 = " & intResult)
+       
+
+        //方法2.你也可以通过使用IMathLink的方法得结果：
+          ml.PutFunction（“EvaluatePacket”，1）
+          ml.PutFunction（“Plus”，2）
+          ml.Put(2)
+          ml.Put(2)
+          ml.EndPacket()
+          ml.WaitForAnswer()
+          intResult = ml.GetInteger()
+          Console.WriteLine("2 + 2 = " & intResult)
+        //完成后始终关闭:
+        ml.Close()
+     End Sub
+End Class
+#################################################################################################################

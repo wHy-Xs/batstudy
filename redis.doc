@@ -6,3 +6,39 @@
 3	底层接口的编写（高级）
 #######################################################
 Redis是一个开源的高性能的键值对数据库。Redis数据库中所有数据都存在内存中。
+----------------------------------------------------------------
+1 最基本的就是基本指令的操作 针对那几种数据类型
+2.redis端口的配置等
+启动redis: 在安装目录下src/redis-server
+进入redis： src/redis-cli -p 端口号
+配置启动： conf/redis-vbus.conf
+3 底层接口的编写（高级）
+#######################################################
+Redis是一个开源的高性能的键值对数据库。Redis数据库中所有数据都存在内存中。
+redis-server   Redis服务器
+redis-cli          Redis命令行客户端
+redis-check-dump    RDB文件检查工具
+redis-check-aof        AOF文件修复工具
+redis-benchmark      Redis性能测试工具
+安装完需要配置：
+daemonize yes                                                               使redis以守护模式运行
+pidfile /home/work/var/run/redis_change.pid             设置redis的pid文件位置
+port 6382                                                                         设置监听端口号
+logfile /home/work/local/redis/log/redis_change.log   设置日志文件存放位置
+dbfilename dump.rdb
+dir /home/work/local/redis/data/redis_change/          设置持久化文件存放位置
+############################################################
+事务
+Redis中的事务是一组命令的集合。一个事务中的命令要么都执行，要么都不执行。
+首先：multi 告诉redis下面发的命令同属于一个事务
+          sadd
+          exec   结束命令输入，是命令按顺序执行
+
+  watch命令可以监控一个或多个键，一旦其中一个键被修改（或删除），之后的事务都不执行。监控一直持续到exec结束。
+############################################################
+
+生存时间
+expire命令：设置一个键的生存时间，到时间后redis会自动删除它。
+expire key seconds.seconds表示键的生存时间，单位是秒。expire返回1执行成功，返回0执行失败。
+ttl key :可以查看这个键还剩多长时间
+persist key ：可以取消设置的生存时间。使用get或getset命令重新赋值也会取消生成时间

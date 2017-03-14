@@ -13,6 +13,8 @@ JavaScript 可以通过不同的方式来输出数据：
 
 HTML 中的脚本必须位于 <script> 与 </script> 标签之间。
 脚本可被放置在 HTML 页面的 <body> 和 <head> 部分中。
+<script type="text/javascript" src="myscript.js">将javascript放置到外部，
+1.可以增加代码的维护性2.加快网页加载
 
 JavaScript 使用关键字 var 来定义变量， 使用等号来为变量赋值：
 
@@ -31,3 +33,5 @@ toLowerCase()
 定义数组var star=new Array(); star[0]="nihao";
 getElementsByTagName()
 getElementById()
+
+大多数情况下，javascript会忽略空白，它只是javascript语句间的空格。

@@ -35,3 +35,132 @@ getElementsByTagName()
 getElementById()
 
 大多数情况下，javascript会忽略空白，它只是javascript语句间的空格。
+####################################################################
+js常用对象：
+windows对象：
+  alert（msg）弹出一个警告对话框
+  confirm(msg) 弹出一个确认对话框
+  prompt(msg,value) 弹出一个输入对话框.msg是提示内容,value为默认值
+  blur() 使window失去焦点
+  focus() 使window获得焦点
+  close()关闭窗口
+  moveBy(x,y) 以窗口左上角坐标为准,横向纵向移动x和y的偏移量
+  moveTo(x,y) 以窗口左上角坐标为准,横向纵向移动到(x,y)的坐标点上、
+  resizeBy(x,y) 以窗口右下角坐标为准,横向纵向移动x和y的偏移量 
+  resizeTo(x,y) 以窗口右下角坐标为准,横向纵向移动到(x,y)的坐标点上 
+  scrollToBy(x,y) 实现窗口滚动,x和y分别为横向和纵向移动偏移量 
+  scrollToTo(x,y) 实现窗口滚动,滚动条横向纵向移动到(x,y)的坐标点上 
+  open() 打开一个新的窗口.window.open(url,target,features) 
+  navigate(url) 页面定向到指定的url中 
+  showModalDialog 打开一个模式对话框:window.showModalDialog(url,variables,features) 
+  closed 判断引用的窗口是否已经关闭 
+  defaultStatus 设置或返回窗口缺省状态信息 
+  dialogArguments 获取传递给模式对话框的数据 
+  dialogHeight 设置或返回模式对话框的高度 
+  dialogWidth 设置或返回模式对话框的宽度 
+  dialogLeft 设置或返回模式对话框的横坐标 
+  dialogTop 设置或返回模式对话框的纵坐标 
+  opener 返回不前窗口的父窗口的引用
+Date对象 
+  getFullYear() 返回完整年份的数字4位,对应有set方法 
+  getYear() 返回年份的数字(1900到1999只2位数字),对应有set方法 
+  getMonth() 返回月份(0~11),对应有set方法 getDate() 返回日期(1~31),对应有set方法 
+  getDay() 返回星期几(0是星期天,1是星期一,2是星期二…6是星期六),对应有set方法 
+  getHours() 返回小时(24小时制),对应有set方法 
+  getMinutes() 返回分钟数,对应有set方法 
+  getSeconds() 返回秒数,对应有set方法 
+  getMilliseconds() 返回毫秒值 
+  getTime() 返回当前日期距1970年1月1日0点0分0秒的时间差(毫秒)
+  getUTC() 返回全球标准时间,对应有set方法
+
+history对象 
+  current 返回在历史记录列表所访问的当前页面的url地址 
+  next 返回下一条记录的地址 
+  previous 返回上一条记录的地址 
+  length 返回history记录条数 
+  back() 页面跳转到上一个页面 
+  forward() 页面跳转到下一个页面 
+  go(number) 页面跳转到前num个页面.go(1)和go(-1)的作用与back()和forward()一致
+
+location对象 
+  hash 设置或获取URL中的锚点名称.通过设置hash属性可以方便地跳转到页面的相应位置 
+  host 设置或获取URL地址中的主机的名称的端口号 
+  port 设置或获取URL地址中的服务器端口号 
+  pathname 设置或获取URL地址中的网页文件的路径 
+  protocol 设置或获取通信协议 
+  href 设置或获取整个URL字符串,通过设置这个属性可以使页面定向到新的URL中 
+  search 设置或获取URL中的查询信息 
+  assign(url) 同设置href属性效果一样 
+  reload(boolean) 刷新页面,当boolean为true时从服务器重新加载,false为从缓存中加载 
+  replace(url) 用新的url来替换当前页面,当前页面也会从history对象中清除
+
+document对象：
+  write()  
+  writeln()  
+  close() 关闭输出流 
+  createElement(tag) 根据指定标记创建一个HTML标签 
+  getElementById(id) 获得指定id的HTML元素 
+  removeChild(e) 移除一个指定的子元素e 
+  replaceChild(new,e) 用new元素替换子元素e 
+  appendChild(e) 增加一个子元素e(最后) 
+  insertBefore(new,e) 在子元素e前面插入一个new元素
+  insertAfter(new,e) 在子元素e后面插入一个new元素 parentNode 指当前元素的父元素 
+  firstChild 指当前元素的第一个子元素 lastChild 指当前元素的最后一个子元素 
+  nextSibling 指当前元素的后一个兄弟元素 previousSibling 指当前元素的前一个兄弟元素 
+  getElementByName 获得指定名称的HTML元素的数组 
+  getElementByTagName 获得指定标签名称的HTML元素的数组 
+  hasFocus() 是否获得焦点 
+  focus() 使获得焦点 
+  linkColor 设置或获取文档内未经点击的链接的颜色 
+  alinkColor 设置或获取被激活链接的颜色 
+  vlinkColor 设置或获取已点击过的链接的颜色 
+  bgColor 设置或获取文档的背景颜色 
+  charset 设置解码字符集 
+  cookie 设置或读取cookie信息 document.cookie="cookiename=name;cookievalue=dong;expires=1000*60*60*24"; 
+  fgColor 设置或获取页面的前景颜色 
+  protocol 设置或获取URL的协议部分 
+  readyState 获取对象的当前状态  
+    loading:对象正在载入  
+    loaded:对象载入数据完毕 
+    interactive:用户可以和对象进行交互,无论其是否加载完毕  
+    complete:对象初使化完毕 
+  title 设置或获取页面标题 
+  fileSize 获取文件大小 
+  fileCreateDate 获取文档创建日期 
+  images 对应页面中的<img>标签 
+      document.images.myname对应<img name="myname">  
+      document.images.length指页面中<img>的个数 
+      document.images[1].src:表示引用对应页面上的第二个<img>的src属性 
+  forms 对应页面中的<form>标签,使用方法参见document.images all HTML中的所有标签 
+  links 页面中的所有链接 
+  anchors 页面中的锚点集合
+
+
+
+
+
+  window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。
+  window.location 对象在编写时可不使用 window 这个前缀。
+locate对象：
+    location.hostname 返回 web 主机的域名
+　　location.pathname 返回当前页面的路径和文件名
+　　location.port 返回 web 主机的端口 （80 或 443）
+　　location.protocol 返回所使用的 web 协议（http:// 或 https://）
+　　window.location.href= "http://www.xxxxxxxx.net" ; 跳转后有后退功能 
+　　window.location.replace("http://www.xxxxxxxx.net") ; 跳转后没有后退功能 
+　　window.open("http://www.xxxxxxxx.net");  在新的窗口打开链接，一般用于简单的弹出页面，现在基本上都被屏蔽掉　
+　　window.location.reload( ); 刷新当前页面.
+　　parent.location.reload( ); 刷新父亲对象（用于框架）
+　　opener.location.reload( ); 刷新父窗口对象（用于单开窗口）
+　　top.location.reload( ); 刷新最顶端对象（用于多开窗口）
+ history对象：
+    window.history 对象包含浏览器的历史。window.history对象在编写时可不使用 window 这个前缀。
+　　window.history.back() - 加载历史列表中的前一个 URL，与在浏览器点击后退按钮相同，
+　　window.history.forward() -加载历史列表中的下一个 URL。 与在浏览器中点击按钮向前相同
+  
+  
+  
+  
+  
+  
+  

@@ -1,5 +1,6 @@
-CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明:
-如果你要在HTML元素中设置CSS样式，你需要在元素中设置"id" 和 "class"选择器。
+一.
+  CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明:
+  如果你要在HTML元素中设置CSS样式，你需要在元素中设置"id" 和 "class"选择器。
 
 1.id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
   HTML元素以id属性来设置id选择器,CSS 中 id 选择器以 "#" 来定义。
@@ -11,14 +12,48 @@ CSS 规则由两个主要的部分构成：选择器，以及一条或多条声�
         } 
 
 2.class 选择器用于描述一组元素的样式，class 选择器有别于id选择器，class可以在多个元素中使用。
-  class 选择器在HTML中以class属性表示, 在 CSS 中，类选择器以一个点"."号显示：
+  class 选择器在HTML中以class属性表示, 在 CSS 中，类选择器以一个点"."号显示,普通属性直接写属性名称即可设置：
   在以下的例子中，所有拥有 center 类的 HTML 元素均为居中。
         .center {text-align:center;} 
   
-  你也可以指定特定的HTML元素使用class。
-  在以下实例中, 所有的 p 元素使用 class="center" 让该元素的文本居中:
+3.选择器详解
+  组合选择器：
+      E,F模式：E,F都会应用这个css
+      E F模式：F会继承E的css
+      E->F模式： 只有E的儿子辈的F才会继承E的css
+   属性模式：
+      E[name]:这个E标签有name的应用这个css
+      E[name="value"]:这个E标签name="value"的应用css
+   伪类（根据元素状态选取）：
+      ：link匹配未点击的链接
+      ：visited匹配已点击的链接
+       :hover 	当鼠标悬浮在元素上方时，向元素添加样式。
+       :active 	向被激活的元素添加样式。
+ <html>
+<head>
+<style type="text/css">
+p:first-child i {
+  color:blue;
+  } 
+</style>
+</head>
 
-3.插入样式表的方法有三种:外部样式表,内部样式表,内联样式
+<body>
+<p>some <i>text</i>. some <i>text</i>.</p>
+<p>some <i>text</i>. some <i>text</i>.</p>
+</body>
+</html>
+
+   伪元素(根据元素的内容选取)：
+      ：first-line匹配元素的第一行
+      ：first-letter匹配元素的第一个字母
+4.优先级
+  行内标签>内部标签>外部标签
+  id>class>标签
+  相同权重后面为主
+  ！important最重要的
+5.盒子模型
+6.插入样式表的方法有三种:外部样式表,内部样式表,内联样式
 外部样式：   <head>
               <link rel="stylesheet" type="text/css" href="mystyle.css">
             </head>

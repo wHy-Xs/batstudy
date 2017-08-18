@@ -99,6 +99,485 @@ linux中的文件目录管理
   swap是交换分区。这是一块特殊的硬盘空间。当实际内容不够用的情况下，操作系统会从内存中取出一部分暂时不用的数据，放在交换区中，从而为
   程序的运行腾出足够的空间。
   gdb调试命令
+#######################################################################################################################
+常用shell命令
+
+    常用shell命令
+        常用shell命令
+            文件和目录操作命令
+                ls(显示文件和目录的信息)
+                cd(改名目录)
+                cp(copy文件)
+                rm(删除文件或目录)
+                mv命令(将文件移动走，或者改名)
+                diff(比较文件内容)
+                ln命令(建立链接, 一般常用软链接)
+                pwd（显示当前所在目录）
+                mkdir (创建目录)
+                rmdir(删除空的目录)
+                chgrp (改变文件的所属的组)
+                find(列出符合参数要求的文件)
+                locate(让使用者可以很快速的搜寻档案系统内是否有指定的档案)
+            文件处理
+                cat(显示文件内容)
+                more/less(均为分页显示命令)
+                tail 命令(显示文件的最后几行)
+                vi命令
+                touch命令(创建一个空文件)
+                wc(显示文件信息)
+                chmod(更改文件权限)
+                chown(更改文件所有者)
+                head(显示文件头部内容)
+                cut (显示每行开头的字符)
+                sleep (将当前动作延迟一段时间)
+                expr(字符串处理命令)
+                split (将一个档案分割成数个)
+            系统相关
+                date(显示时间)
+                df(显示磁盘使用情况)
+                free(显示内存使用情况)
+                du(显示文件或者目录的大小)
+                top(显示系统状态, 例如cpu, 进程等情况)
+                vmstat(显示系统状态)
+                su(切换用户)
+                ps (显示当前的进程)
+                pstree(显示树状进程使用)
+                kill(杀死进程: kill -9 进程号)
+                netstat(查看网络使用情况)
+                ssh(登陆到其他机器)
+                scp(机器之间拷贝文件)
+                wget(ftp下载)
+                man、info (线手册命令)
+                alias (别名)
+                unalias (消别名)
+                passwd (更改使用者的密码)
+                who(显示有哪些用户登录到系统中)
+                whoami(显示当前用户是谁)
+                at(指定在某个特定时刻执行某个程序或指令)
+                crontab （在固定时间或固定间隔执行）
+            其他命令
+                if 条件判断
+                hostname
+                nohup(在后台启动程序)
+                screen(在后台启动程序)
+                rz/sz(在windows机器和测试机器之间进行文件上传和下载, securecrt提供)
+        命令进阶
+            echo
+            sed
+            grep
+            awk
+       
+
+常用shell命令
+
+文件和目录操作命令
+ls(显示文件和目录的信息)
+
+ls　以默认方式显示当前目录文件列表
+
+ls -a 显示所有文件包括隐藏文件
+
+ls -l 显示文件属性，包括大小，日期，符号连接，是否可读写及是否可执行
+
+ls -lh 显示文件的大小，以容易理解的格式印出文件大小 (例如 1K 234M 2G)
+
+ls -lt 显示文件，按照修改时间排序
+
+cd(改名目录)
+
+cd dir　切换到当前目录下的dir目录
+
+cd /　切换到根目录
+
+cd ..　切换到到上一级目录
+
+cd ../..　切换到上二级目录
+
+cd ~　切换到用户目录，比如是root用户，则切换到/root下
+
+cp(copy文件)
+
+cp source target　将文件source复制为target
+
+cp /root/source .　将/root下的文件source复制到当前目录
+
+cp –av soure_dir target_dir　将整个目录复制，两目录完全一样
+
+rm(删除文件或目录)
+
+rm file　删除某一个文件
+
+rm -f file 删除时候不进行提示。可以于r参数配合使用
+
+rm -rf dir　删除当前目录下叫dir的整个目录
+
+mv命令(将文件移动走，或者改名)
+
+mv source target　将文件source更名为target
+
+diff(比较文件内容)
+
+diff dir1 dir2　比较目录1与目录2的文件列表是否相同，但不比较文件的实际内容，不同则列出
+
+diff -r dir1 dir2 比较目录1与目录2的所有文件及内容
+
+diff file1 file2　比较文件1与文件2的内容是否相同，如果是文本格式的文件，则将不相同的内容显示，如果是二进制代码则只表示两个文件是不同的
+
+comm file1 file2　比较文件，显示两个文件不相同的内容
+
+ln命令(建立链接, 一般常用软链接)
+
+ln source_path target_path 硬连接
+
+ln -s source_path target_path 软连接
+
+pwd（显示当前所在目录）
+mkdir (创建目录)
+
+mkdir AAA 在当前目录下创建一子目录，名为 AAA
+
+rmdir(删除空的目录)
+
+rmdir AAA : 将当前目录下，名为 AAA 的子目录删除
+
+rmdir -p BBB/Test : 在当前目录下的 BBB 目录中，删除名为 Test 的子目录。若Test 删除后，BBB 目录成为空目录，则 BBB 亦予删除。
+
+chgrp (改变文件的所属的组)
+
+chgrp users file1.txt :将文件 file1.txt 的所属组设为 users 组
+
+chgrp -R bin * : 将当前目录下的所有文件与子目录（包括子目录下的文件）都设为 bin 组。
+
+find(列出符合参数要求的文件)
+
+find [path...] [expression] : 将符合 expression 的文件列出来。
+
+-amin n : 在过去 n 分钟内被读取过的文件
+
+-anewer file : 比文件 file 更晚被读取过的文件
+
+-atime n : 在过去 n 天被读取过的文件
+
+-cmin n : 在过去 n 分钟内被修改过的文件
+
+-cnewer file :比文件 file 更新的文件
+
+-ctime n : 在过去 n 天过修改过的文件
+
+-name filename, -iname filename : 符合 filename 的文件。iname 会忽略大小写
+
+-size n : 档案大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k表示 kilo bytes，w 是二个位元组。-type c : 档案类型是 c 的档案。
+
+find . -name "*.c" 将当前目录及其子目录下所有扩展名是 c 的文件列出来。
+
+find . -cmin -20将当前目录及其子目录下所有最近 20 分钟内更新过的文件列出
+
+locate(让使用者可以很快速的搜寻档案系统内是否有指定的档案)
+
+locate [-q] [-d ] [--database=]
+
+locate [-r ] [--regexp=]
+
+locate [-qv] [-o ] [--output=]
+
+locate [-Vh] [--version] [--help]
+
+说明： locate 让使用者可以很快速的搜寻档案系统内是否有指定的档案。其方法是先建立一个包括系统内所有档案名称及路径的资料库，之后当寻找时就只需查询这个资料库，而不必实际深入档案系统之中了。在一般的 distribution 之中，资料库的建立都被放在 contab 中自动执行。一般使用者在使用时只要用
+
+# locate your_file_name 的型式就可以了。
+
+参数： -n 至多显示n 个输出。
+
+范例：
+
+1. locate chdrv : 寻找所有叫 chdrv 的档案。
+
+2. locate -n 100 a.out : 寻找所有叫 a.out 的档案，但最多只显示 100 个。
+
+文件处理
+
+cat(显示文件内容)
+
+more/less(均为分页显示命令)
+
+more　file
+
+less -N file 显示内容, 并在前面标出行号
+
+它们也能用于管道命令之后, 例如 ps aux | less
+
+tail 命令(显示文件的最后几行)
+
+tail -n 100 aaa.txt 显示文件aaa.txt文件的最后100行
+
+tail -f x.txt 动态显示x.txt的末尾几行, 即日志滚动时自动刷新
+
+vi命令
+
+vi file　编辑文件file
+
+vi 原基本使用及命令：
+
+输入命令的方式为先按[ESC]键，然后输入:w(写入文件),:w!(不询问方式写入文件）,:wq保存并退出,:q退出,q!不保存退出
+
+常用vi -d a.txt b.txt 进行文件比较， [c 跳转到上一修改处，]c跳转到下一修改处
+
+touch命令(创建一个空文件)
+
+touch aaa.txt 创建一个空文件，文件名为aaa.txt
+
+wc(显示文件信息)
+
+例如wc -l *表示查看文件的行数
+
+chmod(更改文件权限)
+
+chown(更改文件所有者)
+
+head(显示文件头部内容)
+
+head [-n|c num] filename 没有参数时，显示最前10行
+
+参数： -n num 显示最前num行
+
+-c num显示最前num 字符
+
+cut (显示每行开头的字符)
+
+cut -cnum1-num2 filename 显示每行从开头算起第 num1 到 num2 的字符。
+
+cut -c0-6 example 显示每行开头算起前 6 个字符。
+
+sleep (将当前动作延迟一段时间)
+
+格式 : sleep [--help] [--version] number[smhd]
+
+说明 : sleep 可以用来将当前动作延迟一段时间
+
+参数 : --help : 显示辅助讯息
+
+--version : 显示版本编号
+
+number : 时间长度，后面可接 s、m、h 或 d, 其中 s 为秒，m 为 分钟，h 为小时，d 为日数
+
+范例 :
+
+    显示当前时间后延迟 1 分钟，之后再次显示时间 : date;sleep 1m;date
+
+expr(字符串处理命令)
+
+格式： expr [option] expresion
+
+范例：
+
+    求字串长度: expr length "this is a test"
+
+14
+
+    数字运算 : expr 14 +[-*/%] 9
+
+23[5、126、1、5]
+
+    从位置处抓取字串 : expr substr "this is a test" 3 5
+
+is is
+
+    字符串首次出现的索引值 : expr index "testforthegame" e
+
+    字串真实重现 : expr quote thisisatestformela
+
+thisisatestformela
+
+split (将一个档案分割成数个)
+
+格式：split [OPTION] [INPUT [PREFIX]]
+
+说明：将一个档案分割成数个。而从 INPUT 分割输出成固定大小的档案，其档名依序为PREFIXaa, PREFIXab...；PREFIX 预设值为 `x。若没有 INPUT 档或为 `-，则从标准输入读进资料。
+
+参数： -b, --bytes=SIZE
+
+-b, --bytes=SIZE SIZE 值为每一输出档案的大小，单位为 byte。
+
+-C, --line-bytes=SIZE 每一输出档中，单行的最大 byte 数。
+
+-l, --lines=NUMBER NUMBER 值为每一输出档的列数大小。
+
+-NUMBER 与 -l NUMBER 相同。
+
+--verbose 于每个输出档被开启前，列印出侦错资讯到标准错误输出。
+
+--help 显示辅助资讯然后离开。
+
+--version 列出版本资讯然后离开。
+
+SIZE 可加入单位: b 代表 512， k 代表 1K， m 代表 1 Meg。
+
+范例：
+
+1. PostgresSQL 大型资料库备份与回存：
+
+因 Postgres 允许表格大过你系统档案的最大容量，所以要将表格 dump 到单一的档案可能会有问题，使用 split进行档案分割。
+
+% pg_dump dbname | split -b 1m - filename.dump.
+
+重新载入
+
+% createdb dbname
+
+% cat filename.dump.* | pgsql dbname
+
+% cat filename.dump.* | pgsql dbname
+
+系统相关
+
+date(显示时间)
+
+df(显示磁盘使用情况)
+
+可加-h参数, 显示human-readable的信息; -i参数, 表示显示inode使用情况
+
+free(显示内存使用情况)
+
+du(显示文件或者目录的大小)
+
+一般可使用 du -hs *的形式
+
+top(显示系统状态, 例如cpu, 进程等情况)
+
+vmstat(显示系统状态)
+
+可加-n参数动态刷新, 进行性能测试时可以使用类似的有iostat, 可以显示io的使用状态; 外部命令sar, 可以显示之前一段时间的系统状态
+
+su(切换用户)
+
+ps (显示当前的进程)
+
+常用ps aux | grep "进程名"
+
+pstree(显示树状进程使用)
+
+常用pstree work, 查看work帐户的进程使用
+
+kill(杀死进程: kill -9 进程号)
+
+更多地, 我们使用killall -9 进程名称
+
+netstat(查看网络使用情况)
+
+常用netstat -nltp查看端口占用情况
+
+ssh(登陆到其他机器)
+
+需要输入密码, 也可以先建立信任关系: http://www.oklinux.cn/html/network/ser/20080907/60717.html
+或者使用批量信任关系工具: http://wiki.babel.baidu.com/twiki/bin/view/Com/Test/Pf_smartssh
+或者在安装了shell-lib的机器上使用"go"命令: http://wiki.babel.baidu.com/twiki/bin/view/Com/Test/ShellLib库使用规范#go使用方法
+
+scp(机器之间拷贝文件)
+
+-r参数表示是文件夹
+常用: 从其他机器拷贝到本地机器: scp [-r] 远程机器名:远程路径名 本地路径
+从本地机器推送到其他机器: scp [-r] 本地路径 远程机器名:远程路径名
+和ssh相同, 需要建立信任关系, 或者在安装了shell-lib的机器上使用pscp命令: http://wiki.babel.baidu.com/twiki/bin/view/Com/Test/ShellLib库使用规范#pscp使用方法
+
+wget(ftp下载)
+
+wget常用的方式为wget ftp://xxxx
+wget有很多有效的参数, 常用的包括-r获取文件夹, -nH不建立hostname的文件夹, --cut-dirs=数字表示对父目录进行截断(否则可能下载到的是home/work/xxx这样的一个若干层级目录), -P下载的本地位置, -q不显示debug信息等, 具体的可以man wget获得
+
+man、info (线手册命令)
+
+格式：man command 范例：man cat [info cat]
+alias (别名)
+
+alias aaa=“ls –l” 设置“ls –l”的别名为 aaa
+unalias (消别名)
+
+unalias aaa 取消aaa的别名
+passwd (更改使用者的密码)
+
+passwd -l xxx 锁定账户: xxx ，使他不能登录 passwd -u lijiangong 解除锁定: passwd -x10 -n3 -w2 -i5 lijiangong 设定密码有效期: 即：3天之后才能更改密码、10天之后必须更改密码、第八天提醒修改密码、 密码失效5天之后账户失效
+who(显示有哪些用户登录到系统中)
+
+who - [husfV] [user] : 显示有哪些用户登录到系统中，显示的信息包含用户ID，使用的终端，上线时间，呆滞时间，CPU使用量，动作等等。
+whoami(显示当前用户是谁)
+at(指定在某个特定时刻执行某个程序或指令)
+
+格式： at TIME command 说明 : 指定在 TIME 这个特定时刻执行某个程序或指令，TIME 的格式 是 HH:MM，其中的 HH 为小时，MM 为分钟，甚至你也可以指定 am, pm, midnight, noon, teatime(就是下午 4 点)等口语词。 如果想要指定超过一天内的时间，则可以用 MMDDYY 或者 MM/DD/YY 的格式， 其中 MM 是月份，DD 是第几日，YY是指年份。另外，使用者甚至也可以使用是 now + 时间间隔来弹性指定时间，其中的时间间隔可以是 minutes, hours,days, weeks 另外，使用者也可指定 today 或 tomorrow 来表示今天或明天。当指定了时间并按下 enter 之后，at会进入交谈模式并要求输入指令或程式，当你输入完后按下 ctrl+D 即可完 成所有动作。 范例 :
+
+    三天后的下午 5 点钟执行 /bin/ls : at 5pm + 3 days /bin/ls
+    三个星期后的下午 5 点执行 /bin/ls : at 5pm + 2 weeks /bin/ls
+    明天的 17:20 执行 /bin/date : at 17:20 tomorrow /bin/date
+    1999 年的最后一天的最后一分钟印出 hello world ! at 23:59 12/31/1999 hello world !
+
+crontab （在固定时间或固定间隔执行）
+
+格式 : crontab [ -u user ] filecrontab [ -u user ] { -l | -r | -e } cmd 说明 : crontab 是用来在固定时间或固定间隔执行程序。 -u user 设定指定user 的时间表，这个前提是你必须要有其权限(比如说是 root)才能够指定他人的时程表。如果不使用 -u user ，就是表示设定自己的时间表。 参数 : -e : 执行文字编辑器来设定时程表，默认的文字编辑器是 VI -r : 删除当前的时程表 -l : 列出当前的时程表 时程表的格式如下 : f1 f2 f3 f4 f5 program 其中 f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天（0~6，0为星期天）。cmd 表示要执行的程序。 当 f1 为 * 时表示每分钟都要执行，f2 为 * 时表示每小时都要执行，其余类推； 当 f1 为 a-b 时，表示从第 a 分钟到第 b 分钟这段时间内要执行，f2为 a-b 时，表示从第 a 到第 b小时都要执行，其余类推； 当 f1 为 */n 时，表示每 n 分钟个时间间隔执行一次，f2 为 */n 表示，每n 小时个时间间隔执行一次，其余类推； 当 f1 为 a, b, c,... 时，表示第 a, b, c,... 分钟要执行，f2 为 a, b, c,... 时表示，第 a, b, c...个小时要执行，其余类推； 使用者也可以将所有的设定先存放在文件 file 中，用 crontab file 的方式来设定时间表。 范例 :
+
+    每月每天每小时的第 0 分钟执行一次 /bin/ls :
+    * * * * /bin/ls
+
+2. 在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup :
+
+    /20 6-12 * 12 * /usr/bin/backup
+    周一到周五每天下午 5:00 执行一次 /bin/ls :
+    17 * * 1-5 /bin/ls
+    每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 echo "haha"
+    0-23/2 * * * echo "haha"
+
+其他命令
+if 条件判断
+
+1 字符串判断
+
+str1 = str2　　　　　　当两个串有相同内容、长度时为真
+str1 = str2　　　　　 当串str1和str2不等时为真
+-n str1　　　　　　　 当串的长度大于0时为真(串非空)
+-z str1　　　　　　　 当串的长度为0时为真(空串)
+str1　　　　　　　　 当串str1为非空时为真
+
+2 数字的判断
+
+int1 -eq int2　　　　两数相等为真
+int1 -ne int2　　　　两数不等为真
+int1 -gt int2　　　　int1大于int2为真
+int1 -ge int2　　　　int1大于等于int2为真
+int1 -lt int2　　　　int1小于int2为真
+int1 -le int2　　　　int1小于等于int2为真
+
+3 文件的判断
+
+-r file　　　　　用户可读为真
+-w file　　　　　用户可写为真
+-x file　　　　　用户可执行为真
+-f file　　　　　文件为正规文件为真
+-d file　　　　　文件为目录为真
+-c file　　　　　文件为字符特殊文件为真
+-b file　　　　　文件为块特殊文件为真
+-s file　　　　　文件大小非0时为真
+-t file　　　　　当文件描述符(默认为1)指定的设备为终端时为真
+
+3 复杂逻辑判断
+
+-a 　 　　　　　 与
+-o　　　　　　　 或
+!　　　　　　　　非
+hostname
+
+hostname命令可以获取当前测试机器的名称, 远程获得其他机器的名称, 可以使用ssh 机器名 "hostname"
+
+hostname -i可以获得当前测试机的ip地址, 远程获得, 和上面类似
+
+nohup(在后台启动程序)
+
+如果我们直接运行命令, 它是在前台执行的, 如果在末尾加上&, 则程序会到后台执行. 但是如果我们的secureCRT断开了连接, 这个进程还是会挂掉.
+
+如果使用nohup 命令名称 &这样的形式, 则断开连接, 进程也会依旧执行, 同时, 打印的内容会存入nohup.out文件中
+
+screen(在后台启动程序)
+
+更加强大, 参见http://www.ibm.com/developerworks/cn/linux/l-cn-screen/
+
+rz/sz(在windows机器和测试机器之间进行文件上传和下载, securecrt提供) 
 ########################################################################################################################
 Linux三剑客之awk
 指导博客地址：http://blog.csdn.net/Borenbao/article/details/1191402

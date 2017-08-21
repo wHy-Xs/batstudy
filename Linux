@@ -618,6 +618,7 @@ Linux三剑客之grep
 -h或--no-filename   在显示符合范本样式的那一列之前，不标示该列所属的文件名称。
 -H或--with-filename   在显示符合范本样式的那一列之前，表示该列所属的文件名称。(默认就是大H)
 -i :忽略大小写
+-o ：仅匹配     grep -o 'f' 2.txt |wc -l 统计f出现的频率
 
 Linux三剑客之sed
 指导文章：http://www.cnblogs.com/ctaixw/p/5860221.html

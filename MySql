@@ -158,6 +158,9 @@ TIMESTAMP  4       1970-01-01 00:00:00/2037 年某时 YYYYMMDD HHMMSS 混合日�
 
 外连接: 以某张表为主,取出里面的所有记录, 然后每条与另外一张表进行连接: 不管能不能匹配上条件,最终都会保留: 能匹配,正确保留; 
        不能匹配,其他表的字段都置空NULL.
+ left join 中左表的全部记录将全部被查询显示，on 后面的条件对它(主表，左表)不起作用，除非再后面再加上where来进行筛选。on后面的条件中，
+ 右表的限制条件将会起作用。 （详见https://blog.csdn.net/qq_27918787/article/details/52297309）     
+       
     SELECT A.*, B.*  
     FROM student_info A left join student_score B  
     ON A.student_id = B.student_id  
